@@ -1,1 +1,30 @@
+ALGORITHM 
+Start the program
+Initialize variables battery = 100, success = 0, delay = 0, fail = 0
+Seed random number generator using current time
+Display starting message and battery level
+Set locations A, B, and C
+For each location A B and C
+Call function deliver for the current location
+Inside deliver
+Display which location delivery is starting
+Call function getWeather to get weather condition
+Condition weather is Rainy if yes the print delivery delayed increase delay by 1 and return to main
+Condition weather is Rainy if  no then go to next step
+Condition weather is Windy and battery < 40 ig yes then print windy and battery low recharge battery by 10 but not more than 100
+Condition weather is Windy and battery < 40 if no theb continue
+Call function checkObstacle to check for obstacle
+Condition obstacle detected if yes then output or print rerouting and reduce battery by 15
+Condition obstacle detected  if no then print no obstacle
+Reduce battery by 10 for delivery
+Condition battery ≤ 0 if yes theb print battery depleted delivery failed increase fail by 1 set battery = 0 return to main
+Condition battery ≤ 0 → no → print delivery successful show battery level increase success by 1
+After all deliveries call function summary
+Display total successful delayed and failed deliveries and final battery level
+End program
+
+
+
+
+
 
