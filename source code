@@ -4,34 +4,74 @@
 #include <string>
 using namespace std;
 
-int battery = 100, success = 0, delay = 0, fail = 0;
+extern int battery, success, delay, fail;
 
-string getWeather();
-bool checkObstacle();
-void deliver(string location);
-void summary();
-
-int main()
+string getWeather()
 {
-    srand(time(0));
-    string locationA = "A";
-    string locationB = "B";
-    string locationC = "C";
-
-    cout << "Welcome to Delivery Drone System\n";
-    cout << "Starting battery level: " << battery << "%\n\n";
-
-    deliver(locationA);
-    deliver(locationB);
-    deliver(locationC);
-
-    summary();
-    return 0;
+    int w = rand() % 3;
+    if (w == 0) return "Clear";
+    else if (w == 1) return "Rainy";
+    else return "Windy";
 }
 
+bool checkObstacle()
+{
+    int o = rand() % 2;
+    return (o == 1);
+}
 
+void deliver(string location)
+{
+    cout << "Delivering to location " << location << endl;
+    string weather = getWeather();
+    cout << "Weather: " << weather << endl;
 
+    if (weather == "Rainy")
+    {
+        cout << "It's rainy. Delivery delayed.\n\n";
+        delay++;
+        return;
+    }
 
+    if (weather == "Windy" && battery < 40)
+    {
+        cout << "It's windy and battery is low (" << battery << "%).\n";
+        cout << "Returning to base for recharge (+10%).\n";
+        battery += 10;
+        if (battery > 100) battery = 100;
+    }
 
+    bool obstacle = checkObstacle();
+    if (obstacle)
+    {
+        cout << "Obstacle detected! Rerouting... (Extra 15% battery used)\n";
+        battery -= 15;
+    }
+    else
+    {
+        cout << "No obstacle detected.\n";
+    }
 
+    battery -= 10;
 
+    if (battery <= 0)
+    {
+        cout << "Battery depleted! Delivery failed.\n\n";
+        fail++;
+        battery = 0;
+        return;
+    }
+
+    cout << "Delivery to " << location << " successful!\n";
+    cout << "Battery level: " << battery << "%\n\n";
+    success++;
+}
+
+void summary()
+{
+    cout << "\nMission Summary\n";
+    cout << "Successful Deliveries: " << success << endl;
+    cout << "Delayed Deliveries: " << delay << endl;
+    cout << "Failed Deliveries: " << fail << endl;
+    cout << "Final Battery Level: " << battery << "%\n";
+}
