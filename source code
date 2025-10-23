@@ -1,1 +1,37 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+using namespace std;
+
+int battery = 100, success = 0, delay = 0, fail = 0;
+
+string getWeather();
+bool checkObstacle();
+void deliver(string location);
+void summary();
+
+int main()
+{
+    srand(time(0));
+    string locationA = "A";
+    string locationB = "B";
+    string locationC = "C";
+
+    cout << "Welcome to Delivery Drone System\n";
+    cout << "Starting battery level: " << battery << "%\n\n";
+
+    deliver(locationA);
+    deliver(locationB);
+    deliver(locationC);
+
+    summary();
+    return 0;
+}
+
+
+
+
+
+
 
