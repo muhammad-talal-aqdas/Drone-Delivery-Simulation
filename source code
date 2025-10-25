@@ -1,77 +1,77 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <cstdlib>                        // for rand and srand functions
+#include <ctime>                          //for time
 #include <string>
 using namespace std;
 
-extern int battery, success, delay, fail;
+extern int battery, success, delay, fail;              //initializing variables
 
 string getWeather()
 {
-    int w = rand() % 3;
-    if (w == 0) return "Clear";
-    else if (w == 1) return "Rainy";
-    else return "Windy";
+    int w = rand() % 3;                       //will generate a random value for w that can be 0,1 or 2
+    if (w == 0) return "Clear";               // w=0 means clears weather
+    else if (w == 1) return "Rainy";          // w=1 indicates a rainy weather
+    else return "Windy";                      // w=2 OR else here indicates a windy weather
 }
 
 bool checkObstacle()
 {
-    int o = rand() % 2;
-    return (o == 1);
+    int o = rand() % 2;                   //will generate a random value for o that can either be 0 or 1
+    return (o == 1);                      //o=1 here indicates the presence of an obstacle       
 }
 
 void deliver(string location)
 {
-    cout << "Delivering to location " << location << endl;
-    string weather = getWeather();
-    cout << "Weather: " << weather << endl;
+    cout << "Delivering to location " << location << endl;           //outputs the delivery location
+    string weather = getWeather();                                  
+    cout << "Weather: " << weather << endl;                         //outputs the randomly generated weather
 
-    if (weather == "Rainy")
+    if (weather == "Rainy")                                         //checks if weather is rainy or not
     {
-        cout << "It's rainy. Delivery delayed.\n\n";
-        delay++;
+        cout << "It's rainy. Delivery delayed.\n\n";            //outputs a delay message due to rainy weather
+        delay++;                                                //increments delay value,more delayed deliveries
         return;
     }
 
-    if (weather == "Windy" && battery < 40)
+    if (weather == "Windy" && battery < 40)                     // checks whether the weather is rainy and battery is less than 40%
     {
         cout << "It's windy and battery is low (" << battery << "%).\n";
-        cout << "Returning to base for recharge (+10%).\n";
-        battery += 10;
-        if (battery > 100) battery = 100;
+        cout << "Returning to base for recharge (+10%).\n";              //returns for charging if the above condition is true
+        battery += 10;                                                   //drone gets charged for an extra 10%
+        if (battery > 100) battery = 100;                                //checks if battery is full
     }
 
     bool obstacle = checkObstacle();
-    if (obstacle)
+    if (obstacle)                                                        //checks if an obstacle is present
     {
-        cout << "Obstacle detected! Rerouting... (Extra 15% battery used)\n";
-        battery -= 15;
+        cout << "Obstacle detected! Rerouting... (Extra 15% battery used)\n";       //uses 15% extra battery if obstacle present
+        battery -= 15;                                                      //battery decreases 15%. extra usage due to obstacle
     }
-    else
+    else                                                               //else statement is executed if no obstacle is present
     {
         cout << "No obstacle detected.\n";
     }
 
-    battery -= 10;
+    battery -= 10;                                      //battery decreases by 10%. normal usage
 
-    if (battery <= 0)
+    if (battery <= 0)                                   //checks if drone's battery is at 0%
     {
         cout << "Battery depleted! Delivery failed.\n\n";
-        fail++;
+        fail++;                                              //battery is zero which means a failed delivery so increments fail
         battery = 0;
         return;
     }
 
-    cout << "Delivery to " << location << " successful!\n";
-    cout << "Battery level: " << battery << "%\n\n";
-    success++;
+    cout << "Delivery to " << location << " successful!\n";          //shows that delivery to a specific location has been a success
+    cout << "Battery level: " << battery << "%\n\n";                 //shows battery percentage
+    success++;                                                       //increments the successful deliveries
 }
 
 void summary()
 {
-    cout << "\nMission Summary\n";
-    cout << "Successful Deliveries: " << success << endl;
-    cout << "Delayed Deliveries: " << delay << endl;
-    cout << "Failed Deliveries: " << fail << endl;
-    cout << "Final Battery Level: " << battery << "%\n";
+    cout << "\nMission Summary\n";                               //will show mission summary at the end
+    cout << "Successful Deliveries: " << success << endl;        //shows number of successful deliveries
+    cout << "Delayed Deliveries: " << delay << endl;            //shows number of delayed deliveries
+    cout << "Failed Deliveries: " << fail << endl;              //shows number of failed deliveries
+    cout << "Final Battery Level: " << battery << "%\n";        //shows final battery percentage
 }
