@@ -1,7 +1,7 @@
 # Drone-Delivery-Simulation
  FOCP Assignment 1
  
-                  #Task members and role divisions
+                  Task members and role divisions
      NAME                             ROLE                                      
                                    Team leader                                  
     Muhammad Talal Aqdas           Logic and Algorithm Designer
@@ -17,7 +17,7 @@
                                    Code and Logic Tester
 
                                    
-                              #Description and Working
+                              Description and Working
   This project simulates a delivery drone that needs to deliver packages to three locations (A, B, and C) in one day.
 Before each flight, the drone checks:
    -Weather conditions (Sunny / Windy / Rainy)
@@ -31,7 +31,7 @@ Before each flight, the drone checks:
 
 This is interesting because drones are widely used in modern delivery systems, and this simulation shows how decision-making logic works under random environmental conditions.
 
-                         #Functions used and their explanation
+                         Functions used and their explanation
 
 1. getWeather() – Randomly generates weather as “Clear”, “Rainy”, or “Windy”.
 2. checkObstacle() – Randomly decides if an obstacle is detected.
