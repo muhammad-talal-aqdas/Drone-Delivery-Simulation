@@ -50,3 +50,11 @@ Random weather and obstacles are generated using rand() and srand(time(0)).
 -After all deliveries, a summary is displayed.
 
 Random function rand() are used to create random situations for weather and obstacles each time the program runs.
+
+                                      #execution instructions
+copy the code into visual studio or any C++ compiler. Compile the code and then run it. The code has been created as a .cpp.
+
+                                 #Team Collaboration
+The discussions were done using Slack. The screenshots of our discussions and task distributions have been uploaded on the main word file as a proof of teamwork and proper task division.
+The roles played by each member have been discussed above already. Different modules were created by us and then after finding and removing errors,they were combined and we got a successful program. Github was also used and each member made more than 1 commits whose proof has been shown in the form of screenshots in the Word File.
+
