@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-extern int battery, success, delay, fail;              //initializing variables
+ int battery=100, success=0, delay=0, fail=0;              //initializing variables
 
 string getWeather()
 {
@@ -74,4 +74,13 @@ void summary()
     cout << "Delayed Deliveries: " << delay << endl;            //shows number of delayed deliveries
     cout << "Failed Deliveries: " << fail << endl;              //shows number of failed deliveries
     cout << "Final Battery Level: " << battery << "%\n";        //shows final battery percentage
+}
+int main()
+{
+   srand(time(0)) ;          //initialize random number generator
+ deliver("A");
+ deliver("B");
+ deliver("C");
+ summary();
+return 0;
 }
