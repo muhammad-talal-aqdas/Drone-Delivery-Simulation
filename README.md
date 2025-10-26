@@ -53,6 +53,7 @@ Random function rand() are used to create random situations for weather and obst
 
                                       #execution instructions
 copy the code into visual studio or any C++ compiler. Compile the code and then run it. The code has been created as a .cpp.
+The screenshots of the code and 3 different random outputs have been uploaded in the word file/
 
                                  #Team Collaboration
 The discussions were done using Slack. The screenshots of our discussions and task distributions have been uploaded on the main word file as a proof of teamwork and proper task division.
