@@ -58,3 +58,13 @@ copy the code into visual studio or any C++ compiler. Compile the code and then 
 The discussions were done using Slack. The screenshots of our discussions and task distributions have been uploaded on the main word file as a proof of teamwork and proper task division.
 The roles played by each member have been discussed above already. Different modules were created by us and then after finding and removing errors,they were combined and we got a successful program. Github was also used and each member made more than 1 commits whose proof has been shown in the form of screenshots in the Word File.
 
+                                     #Usage of AI
+AI usage was minimal. Initially we used ChatGPT to help us understand how we were supposed to create the code.  Using its help, we made discussions among ourselves to try to understand the main logic and then create our own code instead of blindly following AI. After that we once again used ChatGPT to provide us a sample Readme file so we could get to know what we were about to create. Using that sample, we created our own readme file using our own thought process. Overall AI helped us in beginning and giving us a start up while we continued the assignment with teamwork.
+
+                                  #Future Improvements
+
+Use an array to store all delivery results (like success, delayed, failed) for each location.
+Save the delivery data in a file so it can be viewed later.
+Add a battery recharge option between deliveries.
+
+
